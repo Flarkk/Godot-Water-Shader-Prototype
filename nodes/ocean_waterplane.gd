@@ -8,7 +8,7 @@ func _ready():
 	camera = get_node("../../game_camera/camera")
 
 # warning-ignore:unused_argument
-func _physics_process(delta):
+func _physics_process(_delta):
 	value += 1
 	
 	if value == 20:

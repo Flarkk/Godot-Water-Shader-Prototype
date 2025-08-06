@@ -56,22 +56,22 @@ var texture_sets_samplers: Array[RID] = [RID(), RID()]
 var texture_sets_images: Array[RID] = [RID(), RID()]
 var flow_texture_set: RID
 
-func _create_image_uniform_set(texture_rd: RID, set : int) -> RID:
+func _create_image_uniform_set(texture_rd: RID, uniform_set : int) -> RID:
 	var uniform := RDUniform.new()
 	uniform.uniform_type = RenderingDevice.UNIFORM_TYPE_IMAGE
 	uniform.binding = 0
 	uniform.add_id(texture_rd)
-	return rd.uniform_set_create([uniform], shader, set)
+	return rd.uniform_set_create([uniform], shader, uniform_set)
 	
-func _create_sampler_uniform_set(texture_rd: RID, set : int) -> RID:
+func _create_sampler_uniform_set(texture_rd: RID, uniform_set : int) -> RID:
 	var uniform := RDUniform.new()
 	uniform.uniform_type = RenderingDevice.UNIFORM_TYPE_SAMPLER_WITH_TEXTURE
 	uniform.binding = 0
 	uniform.add_id(sampler)
 	uniform.add_id(texture_rd)
-	return rd.uniform_set_create([uniform], shader, set)
+	return rd.uniform_set_create([uniform], shader, uniform_set)
 
-func _initialize_compute_code(init_with_texture_size: Vector2i, flow_texture : Texture) -> void:
+func _initialize_compute_code(init_with_texture_size: Vector2i, flow_tex : Texture) -> void:
 	rd = RenderingServer.get_rendering_device()
 
 	shader = rd.shader_create_from_spirv(load("res://shaders/vector_map.glsl").get_spirv())
@@ -85,7 +85,7 @@ func _initialize_compute_code(init_with_texture_size: Vector2i, flow_texture : T
 	sampler_state.repeat_v = RenderingDevice.SAMPLER_REPEAT_MODE_REPEAT
 	sampler = rd.sampler_create(sampler_state)
 
-	flow_texture_set = _create_sampler_uniform_set(RenderingServer.texture_get_rd_texture(flow_texture.get_rid()), 3)
+	flow_texture_set = _create_sampler_uniform_set(RenderingServer.texture_get_rd_texture(flow_tex.get_rid()), 3)
 	
 	var tf: RDTextureFormat = RDTextureFormat.new()
 	tf.format = RenderingDevice.DATA_FORMAT_R32G32B32A32_SFLOAT
@@ -112,7 +112,7 @@ func _initialize_compute_code(init_with_texture_size: Vector2i, flow_texture : T
 		texture_sets_images[i] = _create_image_uniform_set(texture_rds[i], 1)
 
 
-func _render_process(with_next_texture : int, tex_size : Vector2, time : float) -> void:
+func _render_process(with_next_texture : int, tex_size : Vector2i, curr_time : float) -> void:
 	var push_constant : PackedFloat32Array = [
 		forward_offset,
 		forward_fadeoff,
@@ -130,15 +130,15 @@ func _render_process(with_next_texture : int, tex_size : Vector2, time : float) 
 		shift_vector.y,
 		
 		shift_speed,
-		time,
+		curr_time,
 		0.0, # padding
 		0.0 # padding
 		]
 	
 	@warning_ignore("integer_division")
-	var x_groups := (tex_size.x - 1) / 8 + 1
+	var x_groups : int = (tex_size.x - 1) / 8 + 1
 	@warning_ignore("integer_division")
-	var y_groups := (tex_size.y - 1) / 8 + 1
+	var y_groups : int = (tex_size.y - 1) / 8 + 1
 
 	var current_set := texture_sets_samplers[(with_next_texture - 1) % 2]
 	var next_set := texture_sets_images[with_next_texture]

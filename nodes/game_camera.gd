@@ -9,8 +9,8 @@ var camera_start_pos = Vector3(0.0, 1.0, 0.0)
 var value = 0
 var audio
 
-func set_sun_glare(value):
-	$post_fx_1.material.set_shader_parameter("glare_amount", value)
+func set_sun_glare(glare_amount):
+	$post_fx_1.material.set_shader_parameter("glare_amount", glare_amount)
 
 func _ready():
 	camera = $camera

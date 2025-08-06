@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddxbfml0mr2sa" path="res://nodes/ocean.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://brwkdswgfcqfo" path="res://nodes/tod/evening_01.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://bf11ty72qw8gm" path="res://nodes/game_camera.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://nodes/ui.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bm02ggeq61a3k" path="res://nodes/ui.tscn" id="4"]
 
 [node name="main" type="Node3D"]
 

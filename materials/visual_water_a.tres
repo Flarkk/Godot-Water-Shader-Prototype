@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=16 format=3 uid="uid://xopksn64jesr"]
 
-[ext_resource type="Shader" path="res://shaders/visual_water.gdshader" id="1"]
+[ext_resource type="Shader" uid="uid://blw1ohwka3nox" path="res://shaders/visual_water.gdshader" id="1"]
 [ext_resource type="Texture2D" uid="uid://b0w7u2ukj6swv" path="res://textures/water/beach_mask.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://cuq1jsrgucrvy" path="res://textures/water/bubbles_albedo.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dcbeg4dybs61p" path="res://textures/water/bubbles_normal.png" id="4"]
@@ -23,6 +23,19 @@ gradient = ExtResource("12")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1")
+shader_parameter/water_color = SubResource("GradientTexture1D_w6ue1")
+shader_parameter/vector_map = SubResource("Texture2DRD_qxr5j")
+shader_parameter/bubble_normal_map = ExtResource("4")
+shader_parameter/bubble_albedo_map = ExtResource("3")
+shader_parameter/foam_normal_map = ExtResource("7")
+shader_parameter/foam_albedo_map = ExtResource("6")
+shader_parameter/underwater_albedo_map = ExtResource("11")
+shader_parameter/swimthings_albedo_map = ExtResource("10")
+shader_parameter/beach_waves_map = ExtResource("2")
+shader_parameter/gerstner_height_map = ExtResource("8")
+shader_parameter/gerstner_normal_map = ExtResource("9")
+shader_parameter/detail_normal_map = ExtResource("5")
+shader_parameter/water_highlight_map = ExtResource("13")
 shader_parameter/gerstner_height = 0.4
 shader_parameter/gerstner_normal = 0.25
 shader_parameter/gerstner_stretch = 1.5
@@ -66,16 +79,3 @@ shader_parameter/flow_blend_timing = 1.0
 shader_parameter/flow_blend_stretch = 0.35
 shader_parameter/water_color_depth = 1.0
 shader_parameter/sss_strength = 5.0
-shader_parameter/water_color = SubResource("GradientTexture1D_w6ue1")
-shader_parameter/vector_map = SubResource("Texture2DRD_qxr5j")
-shader_parameter/bubble_normal_map = ExtResource("4")
-shader_parameter/bubble_albedo_map = ExtResource("3")
-shader_parameter/foam_normal_map = ExtResource("7")
-shader_parameter/foam_albedo_map = ExtResource("6")
-shader_parameter/underwater_albedo_map = ExtResource("11")
-shader_parameter/swimthings_albedo_map = ExtResource("10")
-shader_parameter/beach_waves_map = ExtResource("2")
-shader_parameter/gerstner_height_map = ExtResource("8")
-shader_parameter/gerstner_normal_map = ExtResource("9")
-shader_parameter/detail_normal_map = ExtResource("5")
-shader_parameter/water_highlight_map = ExtResource("13")

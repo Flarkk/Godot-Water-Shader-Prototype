@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bf11ty72qw8gm"]
 
-[ext_resource type="Script" path="res://nodes/game_camera.gd" id="1"]
+[ext_resource type="Script" uid="uid://drvitowkg2p3s" path="res://nodes/game_camera.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://dbpr7nw4fi64p" path="res://sounds/level/ocean/ocean_waves_crisp.wav" id="2"]
 [ext_resource type="Texture2D" uid="uid://bv2wcskgo6ve6" path="res://textures/post/lense_smudge_a.png" id="3"]
-[ext_resource type="Shader" path="res://shaders/camera_lense.gdshader" id="4"]
+[ext_resource type="Shader" uid="uid://d3d8xr2duwwn3" path="res://shaders/camera_lense.gdshader" id="4"]
 
 [sub_resource type="ShaderMaterial" id="1"]
 shader = ExtResource("4")

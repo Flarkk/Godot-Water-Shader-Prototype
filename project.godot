@@ -15,7 +15,7 @@ config/description="This is a working water shader prototype with a simplified C
 
 The shader works only in GLES3 as the depth buffer is not fully supported in GLES2."
 run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
 
 [display]

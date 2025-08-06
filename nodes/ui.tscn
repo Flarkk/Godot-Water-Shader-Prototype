@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bm02ggeq61a3k"]
 
-[ext_resource path="res://nodes/ui.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://bp8o2nwppwqr0" path="res://nodes/ui.gd" id="1"]
 
 [node name="ui" type="Control"]
 offset_left = 7.0
 offset_top = 8.0
 offset_right = 274.0
 offset_bottom = 156.0
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,7 +15,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 offset_right = 121.0
 offset_bottom = 22.0
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "WIND SPEED"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -37,7 +37,7 @@ __meta__ = {
 offset_top = 40.9535
 offset_right = 121.0
 offset_bottom = 62.9535
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "WATER STYLE"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,7 +57,7 @@ __meta__ = {
 offset_top = 84.751
 offset_right = 121.0
 offset_bottom = 106.751
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "SUBSURFACE SCATTERING"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -78,7 +78,7 @@ __meta__ = {
 offset_top = 130.824
 offset_right = 121.0
 offset_bottom = 152.824
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "SUN GLARE"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,6 +94,7 @@ value = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="value_changed" from="wind_speed" to="." method="_on_wind_speed_value_changed"]
 [connection signal="value_changed" from="water_style" to="." method="_on_water_style_value_changed"]
 [connection signal="value_changed" from="subsurface_scattering" to="." method="_on_subsurface_scattering_value_changed"]

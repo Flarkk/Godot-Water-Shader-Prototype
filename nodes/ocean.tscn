@@ -2,9 +2,9 @@
 
 [ext_resource type="Material" uid="uid://xopksn64jesr" path="res://materials/visual_water_a.tres" id="2"]
 [ext_resource type="ArrayMesh" uid="uid://bn2a7wjcdu02r" path="res://objects/waterplane/waterplane_ultra.obj" id="3"]
-[ext_resource type="Script" path="res://nodes/ocean.gd" id="4"]
-[ext_resource type="Script" path="res://nodes/ocean_waterplane.gd" id="5"]
-[ext_resource type="Script" path="res://nodes/render_targets.gd" id="5_thw2b"]
+[ext_resource type="Script" uid="uid://bbp3boto6kxf4" path="res://nodes/ocean.gd" id="4"]
+[ext_resource type="Script" uid="uid://brsefck8b5pqd" path="res://nodes/ocean_waterplane.gd" id="5"]
+[ext_resource type="Script" uid="uid://wsq762jg4ny0" path="res://nodes/render_targets.gd" id="5_thw2b"]
 [ext_resource type="Texture2D" uid="uid://xqms6usqjv7i" path="res://textures/default/flowmap_source_02.png" id="6_mobor"]
 
 [node name="ocean" type="Node3D"]
